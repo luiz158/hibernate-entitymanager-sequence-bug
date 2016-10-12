@@ -1,0 +1,16 @@
+Updating to Hibernate 5.x appears to break `@GeneratedValue` in that the schema no longer uses a database sequence.
+To try this working (using Hibernate 4.2.11.Final), use:
+
+    $ ./mvnw clean test
+
+To see it fail due to the fact that `data.sql` does not provide a value for the id (which should be using a database sequence) using Hibernate 5.0.11 run
+
+    $ ./mvnw clean test -Phibernate50
+
+To see it fail using Hibernate 5.1.2 run
+
+    $ ./mvnw clean test -Phibernate51
+
+To see it fail using Hibernate 5.2.3 run
+
+    $ ./mvnw clean test -Phibernate52
